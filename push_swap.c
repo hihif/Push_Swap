@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:36:48 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/06 19:19:15 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/06 19:58:27 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	print(t_stack *x)
 int	main (int ac, char *av[])
 {
 	int i = 1;
-	t_node *heada, *headb;
-	t_stack *a, *b;
+	// t_node *heada;
+	t_stack *a;
 	// printf("here  \n");
 	a = (t_stack *)malloc(sizeof(t_stack));
 	while (i < ac)
