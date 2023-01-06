@@ -6,8 +6,14 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:11:13 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/05 10:13:14 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/06 13:30:04 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
+
+void	ft_reverse_rotate_ab(t_stack *a, t_stack *b)
+{
+	ft_reverse_rotate_a(a);
+	ft_reverse_rotate_b(b);
+}

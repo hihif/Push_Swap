@@ -6,8 +6,13 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:11:11 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/05 10:13:12 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/06 13:28:53 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
+
+void	ft_reverse_rotate_b(t_stack *b)
+{
+	ft_reverse_rotate_a(b);
+}

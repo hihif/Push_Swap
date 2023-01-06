@@ -6,8 +6,17 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:11:05 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/05 10:13:10 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/06 14:03:58 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
+
+void	ft_rotate_ab(t_stack *a, t_stack *b)
+{
+	ft_rotate_a(a);
+	// printf("\n --%d-- \n",a->list->x);
+	// printf("\n --%d-- \n",a->list->next->x);
+	// exit(0);
+	ft_rotate_b(b);
+}

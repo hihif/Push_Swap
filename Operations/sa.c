@@ -6,17 +6,17 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:11:16 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/05 11:36:15 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/05 17:53:42 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	swap_a(t_stack *a)
+void	ft_swap_a(t_stack *a)
 {
 	int tmp;
 	
-	tmp = a->node->x;
-	a->node->x = a->node->next->x;
-	a->node->next->x = tmp;
+	tmp = a->list->x;
+	a->list->x = a->list->next->x;
+	a->list->next->x = tmp;
 }
