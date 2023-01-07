@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:06:12 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/06 13:44:24 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/07 13:35:42 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_reverse_rotate_ab(t_stack *a, t_stack *b);
 void	ft_lstback(t_node **list, t_node *node);
 void	ft_lstfront(t_node **list, t_node *node);
 int		ft_lsize(t_node *list);
+int		ft_check_if_sorted(t_stack *a);
 t_node	*ft_newnode(int x);
 t_node	*ft_lastnode(t_node **list);
 void	ft_NULLlast(t_node *list);

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 10:10:53 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/07 20:33:23 by fhihi            ###   ########.fr       */
+/*   Created: 2023/01/07 13:16:29 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/07 13:45:41 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../push_swap.h"
+#include"push_swap.h"
 
-void	ft_push_a(t_stack *a, t_stack *b)
+int	ft_check_if_sorted(t_stack *a)
 {
-	t_node *node;
-	node = b->list;
-	if (!node)
-		return ;
-	b->list = b->list->next;
-	node->next = a->list;
-	a->list = node;
-	a->size++;
-	b->size--;
+	t_node *head;
+	int max;
+
+	head = a->list;
+	max = head->x;
+	head = head->next;
+	while (head)
+	{
+		if (max < head->x)
+			max = head->x;
+		else 
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }
