@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:11:16 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/07 16:31:30 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/08 13:44:53 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	ft_swap_a(t_stack *a)
 		return ;
 	a->list->x = a->list->next->x;
 	a->list->next->x = tmp;
+	ft_printf("sa\n");
 }

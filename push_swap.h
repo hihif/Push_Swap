@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:06:12 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/07 13:35:42 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/08 13:39:20 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 # include"libftprintf/ft_printf.h"
 # include"libftprintf/libft.h"
+# include<limits.h>
 
 typedef struct s_node
 {
 	int 			x;
+	int 			pos;
 	struct s_node	*next;
 }	t_node;
 
@@ -46,5 +48,9 @@ int		ft_check_if_sorted(t_stack *a);
 t_node	*ft_newnode(int x);
 t_node	*ft_lastnode(t_node **list);
 void	ft_NULLlast(t_node *list);
+int		ft_get_position(t_stack *a, int nb);
+int 	ft_get_max(t_stack *a, int nb);
+int		ft_get_min(t_stack *a);
+int	ft_get_max_ina(t_stack *a);
 
 #endif 
