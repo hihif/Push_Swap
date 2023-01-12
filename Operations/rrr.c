@@ -6,13 +6,13 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:11:13 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/08 13:23:54 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/11 21:08:35 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	ft_reverse_rotate_ab(t_stack *a, t_stack *b)
+void	ft_reverse_rotate_ab(t_stack *a, t_stack *b, char *msg)
 {
 	t_node	*last1;
 	t_node	*last;
@@ -24,5 +24,5 @@ void	ft_reverse_rotate_ab(t_stack *a, t_stack *b)
 
 	ft_NULLlast(b->list);
 	ft_lstfront(&b->list, last);
-	ft_printf("rrr\n");
+	ft_printf("%s", msg);
 }

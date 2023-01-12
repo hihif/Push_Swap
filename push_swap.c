@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:36:48 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/08 14:57:34 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/11 22:35:18 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,114 +20,17 @@ void	print(t_stack *x)
 	list = x->list;
 	while (i < x->size)
 	{
-		printf("%d\n", list->x);
+		printf("val = %d  flag = %d\n", list->x, list->flag);
 		list = list->next;
 		i++;
 	}
 }
 
-static	void	sort3(t_stack *a)
-{
-	while(!ft_check_if_sorted(a))
-	{
-		if (a->list->x < a->list->next->x)
-		{
-			ft_reverse_rotate_a(a);
-
-		}
-		else
-		{
-			ft_swap_a(a);
-		}
-	}
-}
-
-void	ft_rotate(t_stack *a, int rotations)
-{
-	while(rotations)
-	{
-		ft_rotate_a(a);
-		rotations--;
-	}
-}
-
-static	void	sort5(t_stack *a)
-{
-	t_stack *b;
-
-	b = (t_stack *)malloc(sizeof(t_stack));
-	while (a->size > 3)
-	{
-		ft_push_b(a, b);
-	}
-	sort3(a);
-	while (b->size)
-	{
-		ft_rotate(a, ft_get_position(a, ft_get_max(a, b->list->x)));
-		ft_push_a(a, b);
-	}
-	while(!ft_check_if_sorted(a))
-	{
-		ft_rotate(a, ft_get_position(a, ft_get_min(a)));
-	}
-}
-
-int ft_get_max(t_stack *a, int nb)
-{
-	int max;
-	t_node *head;
-
-	max = ft_get_max_ina(a); 
-	head = a->list;
-	while (head)
-	{
-		if (head->x > nb && head->x < max)
-			max = head->x;
-		head = head->next;
-	}
-	if (nb > ft_get_max_ina(a))
-		max = ft_get_min(a);
-	return (max);
-}
-
-int	ft_get_max_ina(t_stack *a)
-{
-	t_node	*head;
-	int min;
-
-	head = a->list;
-	min = head->x;
-	while (head)
-	{
-		if (min < head->x)
-			min = head->x;
-		head = head->next;
-	}
-	return (min);
-}
-
-int	ft_get_min(t_stack *a)
-{
-	t_node	*head;
-	int min;
-
-	head = a->list;
-	min = head->x;
-	while (head)
-	{
-		if (min > head->x)
-			min = head->x;
-		head = head->next;
-	}
-	return (min);
-}
-
-
-
 int	main (int ac, char *av[])
 {
 	int i = 1;
 	t_stack *a;
+	// t_node *head;
 	a = (t_stack *)malloc(sizeof(t_stack));
 	while (i < ac)
 	{
@@ -136,7 +39,7 @@ int	main (int ac, char *av[])
 	}
 	a->size = ft_lsize(a->list);
 	sort5(a);
-	// printf("-------------------------------\n");
+	// ft_rotate_to_best(a);
 	// print(a);
 	return (0);
 }
