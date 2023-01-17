@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:16:29 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/11 22:35:53 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/17 13:33:57 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_get_position(t_stack *stack, int nb)
 	int i;
 	t_node *head;
 
-	i = 0;
+	i = 1;
 	head = stack->list;
 	while(head)
 	{
@@ -66,18 +66,18 @@ t_stack	*ft_copy(t_stack *stack)
 	return (new);
 }
 
-void	ft_rotate_to_best(t_stack *stack)
-{
-	t_best *best;
+// void	ft_rotate_to_best(t_stack *stack)
+// {
+// 	t_best *best;
 
-	best = ft_get_longest_sorted(stack);
-	printf("here the unrotated stack rotations = %d\n", best->rotate);
-	ft_overwrite(stack->list, best->array);
-	print(stack);
-	puts("\nto here");
-	ft_rotate(stack, best->rotate);
-	free(best->array);
-}
+// 	best = ft_get_longesdt_sorted(stack);
+// 	// printf("here the unrotated stack rotations = %d\n", best->rotate);
+// 	ft_rotate(stack, best->rotate);
+// 	ft_overwrite(stack->list, best->array);
+// 	print(stack);
+// 	puts("\nto here");
+// 	free(best->array);
+// }
 
 int	ft_check_flags(t_node *list)
 {

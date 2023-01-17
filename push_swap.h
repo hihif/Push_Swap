@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:06:12 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/11 21:19:16 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/17 13:59:43 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,33 @@
 # include"libftprintf/libft.h"
 # include<limits.h>
 
+typedef	struct s_operation
+{
+	int pa;
+	int pb;
+	int sa;
+	int sb;
+	int ss;
+	int ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+}	t_operation;
+
+typedef	struct s_best
+{
+	int rotate;
+	int *array;	
+}	t_best;
+
 typedef struct s_node
 {
 	int 			x;
 	int 			flag;
+	int				tot;
+	t_operation		price;
 	struct s_node	*next;
 }	t_node;
 
@@ -29,12 +52,6 @@ typedef	struct s_stack
 	int 	size;
 	t_node	*list;
 }	t_stack;
-
-typedef	struct s_best
-{
-	int rotate;
-	int *array;	
-}	t_best;
 
 void	ft_swap_a(t_stack *a, char *msg);
 void	ft_swap_b(t_stack *b, char *msg);
@@ -68,5 +85,7 @@ int		ft_count_flags(t_node *list);
 void	ft_rotate_to_best(t_stack *stack);
 int		ft_check_flags(t_node *list);
 void	print(t_stack *x);
+void	QSort(int *a, int s, int e);
+int		ft_get_chunk(t_stack *stack);
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:46:54 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/11 21:10:51 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/12 13:59:40 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_rotate(t_stack *stack, int rotations)
 	{
 		while(rotations)
 		{
-			ft_rotate_a(stack, "ra\n");
+			ft_rotate_a(stack, "rb\n");
 			rotations--;
 		}
 	}
@@ -80,7 +80,7 @@ void	ft_rotate(t_stack *stack, int rotations)
 		rotations = stack->size - rotations;
 		while(rotations)
 		{
-			ft_reverse_rotate_a(stack, "rra\n");
+			ft_reverse_rotate_a(stack, "rrb\n");
 			rotations--;
 		}	
 	}

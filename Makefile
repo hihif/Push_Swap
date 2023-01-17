@@ -6,7 +6,7 @@
 #    By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 18:40:36 by fhihi             #+#    #+#              #
-#    Updated: 2023/01/11 20:52:37 by fhihi            ###   ########.fr        #
+#    Updated: 2023/01/12 13:38:56 by fhihi            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM = rm -f
 
 SRC = push_swap.c lincked_list.c Operations/pa.c Operations/pb.c Operations/ra.c Operations/rb.c \
 Operations/rr.c Operations/rra.c Operations/rrb.c Operations/rrr.c Operations/sb.c Operations/sa.c \
-Operations/ss.c utils.c utils2.c sorting.c utils3.c
+Operations/ss.c utils.c utils2.c sorting.c utils3.c QSort.c
 
 OBJ = $(SRC:.c=.o)
 

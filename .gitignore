@@ -1,4 +1,5 @@
 *.o
+*.out
 push_swap
 *.a
 .vscode
