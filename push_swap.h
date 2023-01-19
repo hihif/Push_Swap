@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:06:12 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/17 13:59:43 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/18 23:04:13 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,13 @@ t_node	*ft_lastnode(t_node **list);
 t_stack	*ft_copy(t_stack *stack);
 t_best	*ft_get_longest_sorted(t_stack *stack);
 void	ft_overwrite(t_node *list, int *array);
-int		ft_count_flags(t_node *list);
-void	ft_rotate_to_best(t_stack *stack);
-int		ft_check_flags(t_node *list);
 void	print(t_stack *x);
 void	QSort(int *a, int s, int e);
 int		ft_get_chunk(t_stack *stack);
+void	ft_top(t_stack *stack);
+void	ft_right_inb(t_stack *a, t_stack *b);
+void	ft_total(t_node *list);
+void	ft_best_to_push(t_stack *a, t_stack *b);
+void	ft_tozero(t_stack *a);
 
 #endif 

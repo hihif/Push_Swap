@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:46:54 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/12 13:59:40 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/18 21:18:47 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ft_get_min_max(t_stack *stack, int nb)
 	int max;
 	t_node *head;
 
-	max = ft_get_max(stack); 
+	max = ft_get_max(stack);
 	head = stack->list;
 	while (head)
 	{
@@ -34,7 +34,7 @@ int	ft_get_max(t_stack *stack)
 {
 	t_node	*head;
 	int max;
-
+	
 	head = stack->list;
 	max = head->x;
 	while (head)
@@ -60,6 +60,24 @@ int	ft_get_min(t_stack *stack)
 		head = head->next;
 	}
 	return (min);
+}
+
+t_stack	*ft_copy(t_stack *stack)
+{
+	t_stack *new;
+	t_node *tmp1;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return NULL;
+	new->size = stack->size;
+	tmp1 = stack->list;
+	while(tmp1)
+	{
+		ft_lstback(&new->list, ft_newnode(tmp1->x));
+		tmp1 = tmp1->next;
+	}
+	return (new);
 }
 
 void	ft_rotate(t_stack *stack, int rotations)

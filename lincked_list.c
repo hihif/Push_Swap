@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_lincked_list.c                                 :+:      :+:    :+:   */
+/*   lincked_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:33:43 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/06 13:27:12 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/18 23:45:36 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	ft_lstback(t_node **list, t_node *node)
 		current = ft_lastnode(&current);
 		current->next = node;
 	}
+	
 }
 
 t_node	*ft_newnode(int x)

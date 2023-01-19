@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:36:48 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/11 22:35:18 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/18 21:42:08 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,29 @@ void	print(t_stack *x)
 	list = x->list;
 	while (i < x->size)
 	{
-		printf("val = %d  flag = %d\n", list->x, list->flag);
+		printf("val = %d  total = %d\n", list->x, list->tot);
 		list = list->next;
 		i++;
 	}
 }
 
-int	main (int ac, char *av[])
-{
-	int i = 1;
-	t_stack *a;
-	// t_node *head;
-	a = (t_stack *)malloc(sizeof(t_stack));
-	while (i < ac)
-	{
-		ft_lstback(&a->list, ft_newnode(ft_atoi(av[i])));
-		i++;
-	}
-	a->size = ft_lsize(a->list);
-	sort5(a);
-	// ft_rotate_to_best(a);
-	// print(a);
-	return (0);
-}
+// int	main (int ac, char *av[])
+// {
+// 	int i = 1;
+// 	t_stack *a;
+// 	// t_node *head;
+// 	a = (t_stack *)malloc(sizeof(t_stack));
+// 	while (i < ac)
+// 	{
+// 		ft_lstback(&a->list, ft_newnode(ft_atoi(av[i])));
+// 		i++;
+// 	}
+// 	a->size = ft_lsize(a->list);
+// 	sort5(a);
+// 	// ft_rotate_to_best(a);
+// 	// print(a);
+// 	return (0);
+// }
 
 
 
