@@ -15,7 +15,6 @@
 
 # include   <unistd.h>
 # include   <stdarg.h>
-# include   <stdio.h>
 
 int	ft_printf(const char *s, ...);
 int	ft_putnbr_base(int n, char *base);

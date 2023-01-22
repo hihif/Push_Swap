@@ -6,16 +6,18 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:46:54 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/18 21:18:47 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/22 04:56:40 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int ft_get_min_max(t_stack *stack, int nb)
+// it gives me the value of the smalest number 
+// that is bigger then nb
+int	ft_get_min_max(t_stack *stack, int nb)
 {
-	int max;
-	t_node *head;
+	int		max;
+	t_node	*head;
 
 	max = ft_get_max(stack);
 	head = stack->list;
@@ -30,11 +32,12 @@ int ft_get_min_max(t_stack *stack, int nb)
 	return (max);
 }
 
+// it gives the biggest number in stack
 int	ft_get_max(t_stack *stack)
 {
 	t_node	*head;
-	int max;
-	
+	int		max;
+
 	head = stack->list;
 	max = head->x;
 	while (head)
@@ -46,10 +49,11 @@ int	ft_get_max(t_stack *stack)
 	return (max);
 }
 
+// it gives the smallest number in stack
 int	ft_get_min(t_stack *stack)
 {
 	t_node	*head;
-	int min;
+	int		min;
 
 	head = stack->list;
 	min = head->x;
@@ -62,43 +66,53 @@ int	ft_get_min(t_stack *stack)
 	return (min);
 }
 
-t_stack	*ft_copy(t_stack *stack)
+// it rotates the stack "rotations" + 1 number of times
+void	ft_rotatea(t_stack *stack, int rotations)
 {
-	t_stack *new;
-	t_node *tmp1;
+	int	half;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return NULL;
-	new->size = stack->size;
-	tmp1 = stack->list;
-	while(tmp1)
-	{
-		ft_lstback(&new->list, ft_newnode(tmp1->x));
-		tmp1 = tmp1->next;
-	}
-	return (new);
-}
-
-void	ft_rotate(t_stack *stack, int rotations)
-{
-	int half;
-
+	rotations++;
 	half = stack->size / 2;
 	if (rotations <= half)
 	{
-		while(rotations)
+		while (rotations)
 		{
-			ft_rotate_a(stack, "rb\n");
+			ft_rotate_stack(stack, "ra\n");
 			rotations--;
 		}
 	}
-	else 
+	else
 	{
 		rotations = stack->size - rotations;
-		while(rotations)
+		while (rotations)
 		{
-			ft_reverse_rotate_a(stack, "rrb\n");
+			ft_reverse_rotate_stack(stack, "rra\n");
+			rotations--;
+		}	
+	}
+}
+
+// it rotates the stack "rotations" + 1 number of times
+void	ft_rotateb(t_stack *stack, int rotations)
+{
+	int	half;
+
+	rotations++;
+	half = stack->size / 2;
+	if (rotations <= half)
+	{
+		while (rotations)
+		{
+			ft_rotate_stack(stack, "rb\n");
+			rotations--;
+		}
+	}
+	else
+	{
+		rotations = stack->size - rotations;
+		while (rotations)
+		{
+			ft_reverse_rotate_stack(stack, "rrb\n");
 			rotations--;
 		}	
 	}

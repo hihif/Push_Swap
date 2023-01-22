@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 10:11:03 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/18 23:48:27 by fhihi            ###   ########.fr       */
+/*   Created: 2023/01/21 21:02:18 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/22 04:26:39 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	ft_rotate_b(t_stack *b, char *msg)
+void	ft_push(t_stack *stack, t_node *node)
 {
-	t_node	*list;
-	list = b->list;
-	b->list = b->list->next;
-	list->next = NULL;
-	ft_lstback(&b->list, list);
-	ft_printf("%s", msg);
+	node->next = stack->list;
+	stack->list = node;
+	stack->size++;
 }

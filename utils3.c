@@ -5,116 +5,97 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 20:51:07 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/11 22:30:41 by fhihi            ###   ########.fr       */
+/*   Created: 2023/01/19 21:24:02 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/22 04:18:35 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int	ft_count_flags(t_node *list)
+// this one rotates if needed
+void	ft_rot(t_stack *a, t_stack *b, t_node *node)
 {
-	t_node *head;
-	int count;
-	count = 0;
-	head = list;
+	while (node->price.ra || node->price.rb || node->price.rr)
+	{
+		if (node->price.ra)
+		{
+			ft_rotate_stack(a, "ra\n");
+			node->price.ra--;
+		}
+		if (node->price.rb)
+		{
+			ft_rotate_stack(b, "rb\n");
+			node->price.rb--;
+		}
+		if (node->price.rr)
+		{
+			ft_rotate_ab(a, b, "rr\n");
+			node->price.rr--;
+		}
+	}
+}
+
+// this one reverse rotates if needed
+void	ft_rev_rot(t_stack *a, t_stack *b, t_node *node)
+{
+	while (node->price.rra || node->price.rrb || node->price.rrr)
+	{
+		if (node->price.rra)
+		{
+			ft_reverse_rotate_stack(a, "rra\n");
+			node->price.rra--;
+		}
+		if (node->price.rrb)
+		{
+			ft_reverse_rotate_stack(b, "rrb\n");
+			node->price.rrb--;
+		}
+		if (node->price.rrr)
+		{
+			ft_reverse_rotate_ab(a, b, "rrr\n");
+			node->price.rrr--;
+		}
+	}
+}
+
+// this function sets evrything in its place so that i can start pushing
+void	ft_best_to_push(t_stack *a, t_stack *b)
+{
+	t_node	*head;
+	t_node	*node;
+	int		min;
+
+	head = a->list;
+	min = head->tot;
+	node = head;
 	while (head)
 	{
-		if (head->flag == 1)
-			count++;
+		if (head->tot < min)
+		{
+			min = head->tot;
+			node = head;
+		}
 		head = head->next;
 	}
-	return (count);
+	ft_rot(a, b, node);
+	ft_rev_rot(a, b, node);
 }
 
-void	ft_overwrite(t_node *list, int *array)
+// this function resets my integers in the struct
+void	ft_tozero(t_stack *a)
 {
-	while (list)
+	t_node	*head;
+
+	head = a->list;
+	while (head)
 	{
-		list->flag = *array;
-		array++;
-		list = list->next;
+		head->price.ra = 0;
+		head->price.rb = 0;
+		head->price.rr = 0;
+		head->price.rra = 0;
+		head->price.rrb = 0;
+		head->price.rrr = 0;
+		head->tot = 0;
+		head = head->next;
 	}
-}
-
-int	ft_set_flags(t_node *list, int *arr)
-{
-	int count;
-	int i;
-	int max;
-
-	i = 1;
-	count = 1;
-	arr[0] = 1;
-	max = list->x;
-	list = list->next;
-	while (list)
-	{
-		if (max < list->x)
-		{
-			max = list->x;
-			arr[i] = 1;
-			count++;
-		}
-		else
-			arr[i] = 0;
-		i++;
-		list = list->next;
-	}
-	return (count);
-}
-
-void	ft_new_arr(int *new, int *old, int n)
-{
-	int i;
-
-	i = 0;
-	while (i < n)
-	{
-		old[i] = new[i];
-		i++;
-	}
-}
-
-t_best	*ft_get_longest_sorted(t_stack *stack)
-{
-	t_best *new;
-	t_stack *copy;
-	t_node *head;
-	int i;
-	int count;
-	int rotate;
-	int newcount;
-	int *array1;
-	int *array2;
-
-	new = (t_best *)malloc(sizeof(t_best));
-	array1 = (int *)malloc(stack->size * sizeof(int));
-	array2 = (int *)malloc(stack->size * sizeof(int));
-	if (!array1 || !array2 || !new)
-		return NULL;
-	copy = ft_copy(stack);
-	i = 0;
-	count = 0;
-	rotate = 0;
-	while (i < copy->size)
-	{
-		if (i != 0)
-			ft_rotate_a(copy, "");
-		head = copy->list;
-		newcount = ft_set_flags(head, array2);
-		printf("count = %d\n", newcount);
-		if (count < newcount)
-		{
-			ft_new_arr(array2, array1, copy->size);
-			rotate++;
-			count = newcount;
-		}
-		printf("next set starts here\n");
-		i++;
-	}
-	new->rotate = rotate - 1;
-	new->array = array1;
-	free(array2);
-	return (new);
 }

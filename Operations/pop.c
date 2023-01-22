@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   pop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 10:11:19 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/11 21:08:28 by fhihi            ###   ########.fr       */
+/*   Created: 2023/01/21 21:02:03 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/22 04:43:58 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	ft_swap_b(t_stack *b, char *msg)
+t_node	*ft_pop(t_stack *stack)
 {
-	int tmp;
+	t_node	*head;
 
-	tmp = b->list->x;
-	if (!b->list || !b->list->next)
-		return ;
-	b->list->x = b->list->next->x;
-	b->list->next->x = tmp;
-	ft_printf("%s", msg);
+	if (!stack->size)
+		return (NULL);
+	head = stack->list;
+	stack->list = stack->list->next;
+	head->next = NULL;       
+	stack->size--;
+	return (head);
+}
+
+void	print(t_stack *x)
+{
+	int i = 0;
+	t_node *list;
+
+	list = x->list;
+	while (i < x->size)
+	{
+		ft_printf("val = %d\n", list->x);
+		list = list->next;
+		i++;
+	}
 }

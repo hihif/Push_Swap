@@ -6,153 +6,96 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:36:48 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/18 21:42:08 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/22 04:58:33 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void	print(t_stack *x)
+void	ft_many(int ac, char *av[])
 {
-	int i = 0;
-	t_node *list;
+	t_stack	*a;
+	int		len;
+	int		*tab;
+	char	**strs;
 
-	list = x->list;
-	while (i < x->size)
+	strs = &av[1];
+	len = ac - 1;
+	tab = ft_error(len, strs); 
+	a = ft_allocat(len, strs);
+	ft_sort(a);
+	free(tab);
+	ft_myfree(a);
+}
+
+void	ft_one(char *av[])
+{
+	char	**strs;
+	int		len;
+	int		*tab;
+	t_stack	*a;
+
+	len = ft_count(av[1], ' ');
+	strs = ft_mysplit(av[1], ' ');
+	tab = ft_error(len, strs);
+	a = ft_allocat(len, strs);
+	ft_sort(a);
+	while (len >= 0)
+		free(strs[len--]);
+	free(strs);
+	free(tab);
+	ft_myfree(a);
+}
+
+int	*ft_error(int len, char *av[])
+{
+	int	i;
+	int	*tab;
+
+	i = 0;
+	tab = (int *)malloc(len * sizeof(int));
+	if (!tab)
+		return (NULL);
+	while (i < len)
 	{
-		printf("val = %d  total = %d\n", list->x, list->tot);
-		list = list->next;
+		tab[i] = ft_myatoi(av[i]);
+		i++;
+	}
+	check_double(tab, len);
+	return (tab);
+}
+
+void	check_double(int *tab, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (tab[i] == tab[j])
+			{
+				write(2, "Error\n", 6);
+				free(tab);
+				exit(0);
+			}
+			j++;
+		}
 		i++;
 	}
 }
 
-// int	main (int ac, char *av[])
-// {
-// 	int i = 1;
-// 	t_stack *a;
-// 	// t_node *head;
-// 	a = (t_stack *)malloc(sizeof(t_stack));
-// 	while (i < ac)
-// 	{
-// 		ft_lstback(&a->list, ft_newnode(ft_atoi(av[i])));
-// 		i++;
-// 	}
-// 	a->size = ft_lsize(a->list);
-// 	sort5(a);
-// 	// ft_rotate_to_best(a);
-// 	// print(a);
-// 	return (0);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	// heada = NULL;
-	// headb = NULL;
-	// ft_lstback(&heada, ft_newnode(2));
-	// ft_lstback(&heada, ft_newnode(1));
-	// ft_lstback(&heada, ft_newnode(3));
-	// ft_lstback(&heada, ft_newnode(6));
-	// ft_lstback(&heada, ft_newnode(5));
-	// ft_lstback(&heada, ft_newnode(8));
-	// printf("head = %d\n", heada->x);
-	// a = (t_stack *)malloc(sizeof(t_stack));
-	// b = (t_stack *)malloc(sizeof(t_stack));
-	// a->list = heada;
-	// a->size = ft_lsize(a->list);
-	// b->list = headb;
-	// b->size = ft_lsize(b->list);
-	// print(a);
-	// printf("------------------\n");
-	// print(b);
-	// ft_swap_a(a);
-	// ft_push_b(a, b);
-	// ft_push_b(a, b);
-	// ft_push_b(a, b);
-	// ft_rotate_ab(a, b);
-	// ft_reverse_rotate_ab(a, b);
-	// ft_swap_a(a);
-	// ft_push_a(a, b);
-	// ft_push_a(a, b);
-	// ft_push_a(a, b);
-	// printf("after OP\n");
-	// print(a);
-	// printf("------------------\n");
-	// print(b);
-
-	// ft_push_a(a, b);
-	// ft_printf("pa\n");
-	// // printf("here %d  --  %d\n", a->list->x, a->list->next->next->x);
-	// while (!ft_check_if_sorted(a))
-	// {
-	// 	if (a->list->x < a->list->next->next->x)
-	// 	{
-	// 		ft_swap_a(a);
-	// 		ft_printf("sa\n");
-	// 		// exit(0);
-	// 	}
-	// 	else if (a->list->x < a->list->next->next->next->x)
-	// 	{
-	// 		ft_swap_a(a);
-	// 		ft_rotate_a(a);
-	// 		ft_swap_a(a);
-	// 		ft_reverse_rotate_a(a);
-	// 		ft_printf("sa\nra\nsa\nrra\n");
-	// 	}
-	// 	else
-	// 	{
-	// 		ft_rotate_a(a);
-	// 		ft_printf("rra\n");
-	// 	}
-	// }
-	// ft_push_a(a, b);
-	// ft_printf("pa\n");
-	// while (!ft_check_if_sorted(a))
-	// {
-	// 	if (a->list->x < a->list->next->next->x)
-	// 	{
-	// 		ft_swap_a(a);
-	// 		ft_printf("sa\n");
-	// 	}
-	// 	else if (a->list->x < a->list->next->next->next->x)
-	// 	{
-	// 		ft_swap_a(a);
-	// 		ft_rotate_a(a);
-	// 		ft_swap_a(a);
-	// 		ft_reverse_rotate_a(a);
-	// 		ft_printf("sa\nra\nsa\nrra\n");
-	// 	}
-	// 	else if (a->list->x < a->list->next->next->next->next->x)
-	// 	{
-	// 		ft_reverse_rotate_a(a);
-	// 		ft_swap_a(a);
-	// 		ft_rotate_a(a);
-	// 		ft_rotate_a(a);
-	// 		ft_printf("rra\nsa\nra\nrra\n");
-	// 	}
-	// 	else
-	// 	{
-	// 		ft_reverse_rotate_a(a);
-	// 		ft_printf("rra\n");
-	// 	}
-	// }
+int	main(int ac, char *av[])
+{
+	if (ac > 1)
+	{
+		if (ac > 2)
+			ft_many(ac, av);
+		else
+			ft_one(av);
+	}
+	return (0);
+}

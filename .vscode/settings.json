@@ -1,5 +1,13 @@
 {
 	"files.associations": {
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"sstream": "c",
+		"random": "c",
+		"libft.h": "c",
+		"ft_printf.h": "c",
+		"__locale": "c",
+		"locale": "c",
+		"__node_handle": "c",
+		"algorithm": "c"
 	}
 }

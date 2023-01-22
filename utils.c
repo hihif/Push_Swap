@@ -6,16 +6,17 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:16:29 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/18 23:54:09 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/19 21:51:15 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
+// it checkes if the stack is sorted
 int	ft_check_if_sorted(t_stack *stack)
 {
-	t_node *head;
-	int max;
+	t_node	*head;
+	int		max;
 
 	head = stack->list;
 	max = head->x;
@@ -24,21 +25,22 @@ int	ft_check_if_sorted(t_stack *stack)
 	{
 		if (max <= head->x)
 			max = head->x;
-		else 
+		else
 			return (0);
 		head = head->next;
 	}
 	return (1);
 }
 
+// it gives the position of the number nb in the stack
 int	ft_get_position(t_stack *stack, int nb)
 {
-	int i;
-	t_node *head;
+	int		i;
+	t_node	*head;
 
 	i = 0;
 	head = stack->list;
-	while(head)
+	while (head)
 	{
 		if (head->x == nb)
 			return (i);
@@ -52,8 +54,10 @@ int	ft_get_position(t_stack *stack, int nb)
 // and sets it to struct
 void	ft_top(t_stack *stack)
 {
-	t_node *head;
-	int i = 0;
+	t_node	*head;
+	int		i;
+
+	i = 0;
 	head = stack->list;
 	while (i <= stack->size / 2)
 	{
@@ -76,13 +80,14 @@ void	ft_top(t_stack *stack)
 // element in a to get to right position
 void	ft_right_inb(t_stack *a, t_stack *b)
 {
-	int max, min, i;
-	t_node *head;
+	int		i;
+	t_node	*head;
 
 	head = a->list;
 	while (head)
 	{
 		i = ft_get_position(b, ft_get_min_max(b, head->x));
+		i++;
 		while (i > 0)
 		{
 			if (i > b->size / 2)
@@ -91,7 +96,7 @@ void	ft_right_inb(t_stack *a, t_stack *b)
 				while (i > 0)
 				{
 					head->price.rrb++;
-					i--;     
+					i--;
 				}
 			}
 			else
@@ -106,26 +111,25 @@ void	ft_right_inb(t_stack *a, t_stack *b)
 // for each number on a stack
 void	ft_total(t_node *head)
 {
-	t_node *list;
+	t_node	*list;
 
 	list = head;
 	while (list)
 	{
-		while(list->price.ra && list->price.rb)
+		while (list->price.ra && list->price.rb)
 		{
 			list->price.rr++;
 			list->price.ra--;
 			list->price.rb--;
 		}
-		while(list->price.rra && list->price.rrb)
+		while (list->price.rra && list->price.rrb)
 		{
 			list->price.rrr++;
 			list->price.rra--;
 			list->price.rrb--;
 		}
-		// if (list->x == 15)
-			// printf(" %d ??? ra %d rb %d rr %d rra %d rrb %d rrr %d\n", list->x, list->price.ra, list->price.rb, list->price.rr, list->price.rra, list->price.rrb, list->price.rrr);
-		list->tot = list->price.ra + list->price.rb + list->price.rr + list->price.rra + list->price.rrb + list->price.rrr;
+		list->tot = list->price.ra + list->price.rb + list->price.rr + \
+			list->price.rra + list->price.rrb + list->price.rrr;
 		list = list->next;
 	}
 }

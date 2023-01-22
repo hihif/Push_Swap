@@ -6,13 +6,11 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:53:13 by fhihi             #+#    #+#             */
-/*   Updated: 2022/10/20 19:39:31 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/19 22:12:14 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-# include   <fcntl.h>
-
 
 void	ft_putchar_fd(char c, int fd)
 {

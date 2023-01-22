@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:33:02 by fhihi             #+#    #+#             */
-/*   Updated: 2022/10/19 10:13:08 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/20 21:03:07 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include	<stdlib.h>
 # include	<unistd.h>
-# include	<stdio.h>
-# include	<string.h>
 # include	<stddef.h>
 # include   <fcntl.h>
 
