@@ -6,11 +6,12 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 03:23:26 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/22 03:28:27 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/22 18:18:27 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"../push_swap.h"
+#include"../push_swap_bonus.h"
 
 void	ft_reverse_rotate_stack(t_stack *stack, char *msg)
 {
@@ -20,6 +21,7 @@ void	ft_reverse_rotate_stack(t_stack *stack, char *msg)
 	tmpstack = (t_stack *)malloc(sizeof(t_stack));
 	if (!tmpstack)
 		return ;
+	tmpstack->size = 0;
 	while (stack->size > 1)
 		ft_push(tmpstack, ft_pop(stack));
 	tmpnode = ft_pop(stack);

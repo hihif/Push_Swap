@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_checker_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 11:36:48 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/22 19:31:08 by fhihi            ###   ########.fr       */
+/*   Created: 2023/01/22 14:43:29 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/22 19:06:22 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"push_swap_bonus.h"
 
 void	ft_many(int ac, char *av[])
 {
@@ -23,7 +23,7 @@ void	ft_many(int ac, char *av[])
 	len = ac - 1;
 	tab = ft_error(len, strs); 
 	a = ft_allocat(len, strs);
-	ft_sort(a);
+	ft_do_operations(a);
 	free(tab);
 	ft_myfree(a);
 }
@@ -36,12 +36,10 @@ void	ft_one(char *av[])
 	t_stack	*a;
 
 	len = ft_count(av[1], ' ');
-	if (len == 1)
-		return ;
 	strs = ft_mysplit(av[1], ' ');
 	tab = ft_error(len, strs);
 	a = ft_allocat(len, strs);
-	ft_sort(a);
+	ft_do_operations(a);
 	while (len >= 0)
 		free(strs[len--]);
 	free(strs);

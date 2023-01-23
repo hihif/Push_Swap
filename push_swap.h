@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:06:12 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/22 05:05:17 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/22 14:42:07 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_operation
 typedef struct s_node
 {
 	int				x;
-	int				flag;
 	int				tot;
 	t_operation		price;
 	struct s_node	*next;

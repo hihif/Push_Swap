@@ -6,11 +6,12 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 03:15:41 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/22 03:57:10 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/22 18:19:18 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"../push_swap.h"
+#include"../push_swap_bonus.h"
 
 void	ft_swap(t_stack *stack, char *msg)
 {
@@ -20,6 +21,7 @@ void	ft_swap(t_stack *stack, char *msg)
 	tmpstack = (t_stack *)malloc(sizeof(t_stack));
 	if (!tmpstack || stack->size < 2)
 		return ;
+	tmpstack->size = 0;
 	ft_push(tmpstack, ft_pop(stack));
 	tmpnode = ft_pop(stack);
 	ft_push(stack, ft_pop(tmpstack));

@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils4.c                                           :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 21:32:31 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/22 15:27:21 by fhihi            ###   ########.fr       */
+/*   Created: 2023/01/22 15:13:40 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/22 16:47:45 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"push_swap_bonus.h"
+
+// it checkes if the stack is sorted
+int	ft_check_if_sorted(t_stack *stack)
+{
+	t_node	*head;
+	int		max;
+
+	head = stack->list;
+	max = head->x;
+	head = head->next;
+	while (head)
+	{
+		if (max <= head->x)
+			max = head->x;
+		else
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
 
 // this is an emplamentation of a simple atoi
 long	ft_myatoi(char *str)
@@ -53,4 +73,55 @@ void	ft_iferror(long nb, char c)
 		write(2, "Error\n", 6);
 		exit(1);
 	}
+}
+
+int	ft_count(char const *s, char c)
+{
+	int	i;
+	int	i1;
+	int	count;
+
+	i = 0;
+	i1 = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] != c && i1 == 0)
+		{
+			count++;
+			i1 = 1;
+		}
+		else if (s[i] == c)
+			i1 = 0;
+		i++;
+	}
+	return (count);
+}
+
+char	**ft_mysplit(char const *s, char c)
+{
+	char	**new;
+	int		i[3];
+
+	if (!s)
+		return (NULL);
+	new = (char **)malloc((ft_count(s, c) + 1) * sizeof(char *));
+	if (!new)
+		return (NULL);
+	i[0] = 0;
+	i[1] = 0;
+	i[2] = -1;
+	while (i[0] <= (int)ft_strlen(s))
+	{
+		if ((s[i[0]] != c || s[i[0]] == '\0') && i[2] < 0)
+			i[2] = i[0];
+		else if ((s[i[0]] == c || s[i[0]] == '\0') && i[2] >= 0)
+		{
+			new[i[1]++] = ft_substr(s, i[2], i[0] - i[2]);
+			i[2] = -1;
+		}
+		i[0]++;
+	}
+	new[i[1]] = NULL;
+	return (new);
 }

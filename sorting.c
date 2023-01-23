@@ -6,7 +6,7 @@
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:48:24 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/22 04:54:39 by fhihi            ###   ########.fr       */
+/*   Updated: 2023/01/22 19:32:05 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ void	sort6plus(t_stack *a)
 void	ft_sort(t_stack *a)
 {
 	if (ft_check_if_sorted(a))
-	{
-		ft_myfree(a);
 		return ;
-	}
 	if (a->size < 4)
 		sort3(a);
 	else if (a->size < 6)

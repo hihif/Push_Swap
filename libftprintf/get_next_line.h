@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pop.c                                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhihi <fhihi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 21:02:03 by fhihi             #+#    #+#             */
-/*   Updated: 2023/01/23 08:42:32 by fhihi            ###   ########.fr       */
+/*   Created: 2022/10/27 15:05:27 by fhihi             #+#    #+#             */
+/*   Updated: 2023/01/22 15:54:14 by fhihi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../push_swap.h"
-#include"../push_swap_bonus.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-t_node	*ft_pop(t_stack *stack)
-{
-	t_node	*head;
+# include<stdio.h>
+# include<fcntl.h>
+# include<stdlib.h>
+# include<unistd.h>
+#define BUFFER_SIZE 5
 
-	if (!stack->size)
-		return (NULL);
-	head = stack->list;
-	stack->list = stack->list->next;
-	head->next = NULL;       
-	stack->size--;
-	return (head);
-}
+char	*ft_strjoin2(char *s1, char *s2);
+size_t	ft_strlen2(char *s);
+char	*ft_strchr2(char *s, int c);
+char	*get_next_line(int fd);
+char	*return_line(char *line);
+char	*left(char *line);
+
+#endif
